@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by LaunchCode
@@ -123,6 +124,42 @@ public class JobData {
             System.out.println("Failed to load job data");
             e.printStackTrace();
         }
+    }
+    public static ArrayList<HashMap<String, String>> findByValue(String value) {
+        //searches for string within each of the columns
+        //should not contain duplicate jobs
+        //if a new column is added, the code should automatically search the new column as well
+        //don't write a code that calls findByColumnAndValue once for each column
+        //utilize loops and collection methods
+        //read and understand findByColumnAndValue, as your code will look similar in some ways
+
+        // load data, if not already loaded
+        loadData();
+
+        //create empty array to collect search results
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+        //Case Sensitive Search Function
+        /*
+        for (HashMap<String, String> row : allJobs) {
+            if (row.containsValue(value)) {
+                jobs.add(row);
+            }
+        }*/
+        //Case Insensitive Search Function
+
+        for (HashMap<String, String> row: allJobs) {
+            HashMap <String, String> rowCapitalized = new HashMap<>();
+            for (Map.Entry<String, String> job: row.entrySet()) {
+                String jobCapitalized = job.getValue().toUpperCase();
+                rowCapitalized.put(job.getKey(), jobCapitalized);
+            }
+            if (rowCapitalized.containsValue(value.toUpperCase())) {
+                jobs.add(row);
+            }
+
+        }
+        //return
+        return jobs;
     }
 
 }
