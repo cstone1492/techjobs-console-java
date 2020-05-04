@@ -73,11 +73,23 @@ public class JobData {
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
-        for (HashMap<String, String> row : allJobs) {
+        /*for (HashMap<String, String> row : allJobs) {
 
             String aValue = row.get(column);
 
             if (aValue.contains(value)) {
+                jobs.add(row);
+            }
+        }*/
+
+        //rewritten as case insensitive
+        for (HashMap<String, String> row: allJobs) {
+
+            String aValue = row.get(column);
+
+            String aValueCapitalized = aValue.toUpperCase();
+
+            if (aValueCapitalized.contains(value.toUpperCase())) {
                 jobs.add(row);
             }
         }
@@ -145,6 +157,7 @@ public class JobData {
                 jobs.add(row);
             }
         }*/
+
         //Case Insensitive Search Function
 
         for (HashMap<String, String> row: allJobs) {

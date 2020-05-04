@@ -122,7 +122,7 @@ public class TechJobs {
             for (HashMap<String, String> aJob: someJobs) {
                 System.out.println("*****");
                 for (Map.Entry<String, String> jobEntry: aJob.entrySet()) {
-                    System.out.println(jobEntry.getKey() + "("+jobEntry.getValue() +")");
+                    System.out.println(jobEntry.getKey() + ": "+jobEntry.getValue());
                 }
 
             }
