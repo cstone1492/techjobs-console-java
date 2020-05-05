@@ -160,7 +160,7 @@ public class JobData {
 
         //Case Insensitive Search Function
 
-        for (HashMap<String, String> row: allJobs) {
+        /*for (HashMap<String, String> row: allJobs) {
             HashMap <String, String> rowCapitalized = new HashMap<>();
             for (Map.Entry<String, String> job: row.entrySet()) {
                 String jobCapitalized = job.getValue().toUpperCase();
@@ -170,6 +170,17 @@ public class JobData {
                 jobs.add(row);
             }
 
+
+        }*/
+
+        //loop through array list of jobs
+        for (HashMap<String, String> row: allJobs) {
+            //use inner for loop to loop through all the properties of a job
+            for(Map.Entry<String, String> jobField: row.entrySet()) {
+                if (jobField.getValue().toUpperCase().contains(value.toUpperCase())) {
+                    jobs.add(row);
+                }
+            }
         }
         //return
         return jobs;

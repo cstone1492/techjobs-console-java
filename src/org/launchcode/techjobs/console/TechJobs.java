@@ -117,13 +117,14 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-        System.out.println(someJobs);
-        if (someJobs != null) {
+        //System.out.println(someJobs);
+        if (someJobs.size() != 0) {
             for (HashMap<String, String> aJob: someJobs) {
                 System.out.println("*****");
                 for (Map.Entry<String, String> jobEntry: aJob.entrySet()) {
                     System.out.println(jobEntry.getKey() + ": "+jobEntry.getValue());
                 }
+                System.out.println("*****");
 
             }
         } else {
